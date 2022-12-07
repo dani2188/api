@@ -3,14 +3,9 @@
 # Library imports
 import numpy as np
 import pandas as pd
-import uvicorn
 from fastapi import FastAPI
 import joblib
 from pydantic import BaseModel
-
-import lime 
-from lime import lime_tabular
-import streamlit.components.v1 as components
 
 
 # Create app and model objects
