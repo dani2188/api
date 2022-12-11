@@ -7,6 +7,11 @@ from fastapi import FastAPI
 import joblib
 from pydantic import BaseModel
 
+import plotly
+import plotly.graph_objects as go
+import shap
+import dill
+
 
 # Create app and model objects
 app = FastAPI()
