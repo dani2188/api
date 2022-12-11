@@ -8,6 +8,5 @@ fastapi
 lightgbm==3.3.3
 shap==0.41.0
 dill==0.3.6
-plotly
-matplotlib
-seaborn
+matplotlib==3.2.2
+seaborn==0.12.0
