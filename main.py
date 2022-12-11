@@ -8,7 +8,7 @@ import joblib
 from pydantic import BaseModel
 import uvicorn
 import plotly
-import plotly.graph_objects as go
+import plotly.graph_objects as pgo
 import shap
 import dill
 
@@ -30,8 +30,6 @@ class Client(BaseModel):
 
 #  Expose the prediction functionality, make a prediction from the passed
 #    JSON data and return the prediction with the confidence
-
-# 189979,184435,395190,193313,
 
 
 
@@ -59,6 +57,5 @@ def get_prediction(client: Client):
         
         
 # Run the fastAPI on local PC:     uvicorn main:app --reload
-
 # Access and see the app:       http://127.0.0.1:8000/docs
 
