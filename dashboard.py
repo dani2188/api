@@ -77,6 +77,7 @@ if predict_btn_res:
   #data_in = X.loc[[id_client]]
   
   # explain the model's predictions using SHAP
+  # python v7 required for dill (in streamlitshare)
   
   explainer_file = open("explainer.pkl", "rb")
   explainer = dill.load(explainer_file)
@@ -87,9 +88,9 @@ if predict_btn_res:
   shap_values_file.close()   
 
   # visualize the prediction's explanation:
-  st_shap(shap.force_plot(explainer.expected_value[1], shap_values[1][0,:], X.loc[[id_client]]), 200)
+  st_shap(shap.force_plot(explainer.expected_value, shap_values[1][0,:], X.loc[[id_client]]), 200)
   # ALL prédictions
-  st_shap(shap.force_plot(explainer.expected_value[1], shap_values[1], X),400)
+  st_shap(shap.force_plot(explainer.expected_value, shap_values[1], X),400)
   st.pyplot(shap.summary_plot(shap_values, X))
             
             
