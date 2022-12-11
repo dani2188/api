@@ -1,4 +1,3 @@
-import plotly
 import streamlit as st
 import requests
 import pandas as pd
@@ -8,8 +7,8 @@ import streamlit.components.v1 as components
 #import dill 
 import numpy as np
 import plotly
-#import plotly.graph_objects as pgo
-#import shap
+import plotly.graph_objects as pgo
+import shap
 #import matplotlib.pyplot as plt
 #import seaborn as sns
 st.set_option('deprecation.showPyplotGlobalUse', False)
