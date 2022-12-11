@@ -6,7 +6,7 @@ import pandas as pd
 from fastapi import FastAPI
 import joblib
 from pydantic import BaseModel
-
+import uvicorn
 import plotly
 import plotly.graph_objects as go
 import shap
