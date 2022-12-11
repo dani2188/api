@@ -7,10 +7,12 @@ from fastapi import FastAPI
 import joblib
 from pydantic import BaseModel
 import uvicorn
-import plotly
-import plotly.graph_objects as pgo
+#import plotly
+#import plotly.graph_objects as pgo
 import shap
 import dill
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 
 # Create app and model objects
