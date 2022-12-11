@@ -7,5 +7,4 @@ uvicorn
 fastapi
 lightgbm==3.3.3
 shap
-pickle
 dill
