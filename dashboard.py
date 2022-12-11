@@ -76,12 +76,13 @@ predict_btn_res = st.sidebar.button("Expliquer les résultats")
 if predict_btn_res:
   #data_in = X.loc[[id_client]]
   
-  # explain the model's predictions using SHAP 
-  with open('explainer.pkl', 'rb') as f: 
-    explainer = dill.load(f)
+  # explain the model's predictions using SHAP
   
-  with open('shap_values.pkl', 'rb') as f: 
-    shap_values = dill.load(f)   
+  with open("explainer.pkl", 'rb') as fex: 
+    explainer = dill.load(fex)
+  
+  with open("shap_values.pkl", 'rb') as fsv: 
+    shap_values = dill.load(fsv)   
 
   # visualize the prediction's explanation:
   st_shap(shap.force_plot(explainer.expected_value[1], shap_values[1][0,:], X.loc[[id_client]]), 200)
