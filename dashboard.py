@@ -77,16 +77,16 @@ if predict_btn_res:
   #data_in = X.loc[[id_client]]
   
   # explain the model's predictions using SHAP  
-  explainer_file = open("explainer.pkl", "rb")
-  explainer = dill.load(explainer_file)
-  explainer_file.close()
+  #explainer_file = open("explainer.pkl", "rb")
+  explainer = dill.load("explainer.pkl")
+  #explainer_file.close()
   
   #explainer = dill.load('explainer.pkl')
   
   #explain the model's predictions using SHAP values
-  shap_values_file = open("shap_values.pkl", "rb")
-  shap_values = dill.load(shap_values_file)
-  shap_values_file.close()
+  #shap_values_file = open("shap_values.pkl", "rb")
+  shap_values = dill.load("shap_values.pkl")
+  #shap_values_file.close()
   
   #shap_values = dill.load('shap_values.pkl')    
   
