@@ -1,18 +1,12 @@
 #API endpoints
 
 # Library imports
-import plotly
-#import plotly.graph_objects as pgo
 import numpy as np
 import pandas as pd
 from fastapi import FastAPI
 import joblib
 from pydantic import BaseModel
 import uvicorn
-import shap
-import dill
-import seaborn as sns
-import matplotlib.pyplot as plt
 
 
 # Create app and model objects
