@@ -68,8 +68,7 @@ if predict_btn:
 
 # Définition d'une fonction pour visualisation shap
 def st_shap(plot, height=None):
-    force_plot = shap.force_plot(*args, matplotlib=False)
-    shap_html = f"<head>{shap.getjs()}</head><body>{force_plot.html()}</body>"
+    shap_html = f"<head>{shap.getjs()}</head><body>{plot.html()}</body>"
     components.html(shap_html, height=height)
     
 #Interprétabilité des résultats avec SHAP:   
