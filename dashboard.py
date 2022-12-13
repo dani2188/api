@@ -82,14 +82,19 @@ if predict_btn_res:
 # Distribition des top features importance:
 dist_btn_res = st.sidebar.button("Positionnement du client (Top Features)")
 if dist_btn_res:
-  # code_gender
+  # Feature: code_gender
   st.write('{code_gender} du client: ', X.loc[[id_client]]['code_gender'].values[0])
   fig= px.histogram(X, x="code_gender", color="code_gender")
   st.plotly_chart(fig)
-  # payment_rate
+  # Feature: payment_rate
   st.write('{payment_rate} du client: ', X.loc[[id_client]]['payment_rate'].values[0])
   fig= px.box(X, y="payment_rate")
   st.plotly_chart(fig)
+  # Feature: region_rating_client_w_city
+  st.write('{region_rating_client_w_city} du client: ', X.loc[[id_client]]['region_rating_client_w_city'].values[0])
+  fig= px.histogram(X, x="region_rating_client_w_city")
+  st.plotly_chart(fig)
+
   
             
             
