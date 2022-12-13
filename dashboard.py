@@ -61,11 +61,12 @@ if predict_btn_res:
   
   # explain the model's predictions using SHAP
   # python v7 required for dill (in streamlitshare)
-  
+  # Loading explainer
   explainer_file = open("explainer.pkl", "rb")
   explainer = dill.load(explainer_file)
   explainer_file.close()
   
+  #Loading shap_values
   shap_values_file = open("shap_values.pkl", "rb")
   shap_values = dill.load(shap_values_file)
   shap_values_file.close()   
@@ -83,7 +84,7 @@ dist_btn_res = st.sidebar.button("Positionner le client")
 if dist_btn_res:
   st.write('code_gender du client: ', X.loc[[id_client]]['code_gender'])
   fig= px.histogram(X, x="code_gender", color="code_gender")
-  st.pyplot(fig)
+  st.plotly_chart(fig)
   
             
             
