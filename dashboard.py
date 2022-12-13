@@ -36,7 +36,7 @@ id_client = st.sidebar.selectbox('Séléctionner un ID client', list(map(int, X.
 
     
 #Faire la prédiction et donner sa probabilité
-predict_btn = st.sidebar.button('Prédire')
+predict_btn = st.sidebar.button('Prédiction')
 if predict_btn:
   resultat= requests.post(url='https://myappy.herokuapp.com/predict',json= {'user_id': id_client})
   #st.write(resultat.json())   
@@ -55,7 +55,7 @@ def st_shap(plot, height=None):
     components.html(shap_html, height=height)
     
 #Interprétabilité des résultats avec SHAP:   
-predict_btn_res = st.sidebar.button("Expliquer les résultats")
+predict_btn_res = st.sidebar.button("Analyse de la prédiction")
 if predict_btn_res:
   #data_in = X.loc[[id_client]]
   
@@ -80,7 +80,7 @@ if predict_btn_res:
             
   
 # Distribition des top features importance:
-dist_btn_res = st.sidebar.button("Positionner le client (Top Features)")
+dist_btn_res = st.sidebar.button("Positionnement du client (Top Features)")
 if dist_btn_res:
   # code_gender
   st.write('{code_gender} du client: ', X.loc[[id_client]]['code_gender'].values[0])
