@@ -79,7 +79,7 @@ if predict_btn_res:
             
   
 # Distribition des top features importance:
-dist_btn_res = st.sidebar.button("Donner la position relative parmi l'ensemble des clients (Top features)")
+dist_btn_res = st.sidebar.button("Positionner le client")
 if dist_btn_res:
   st.write('code_gender du client: ', X.loc[[id_client]]['code_gender'])
   fig= px.histogram(X_test_sample, x="code_gender", color="code_gender")
