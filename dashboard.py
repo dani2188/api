@@ -88,7 +88,7 @@ if dist_btn_res:
   st.plotly_chart(fig)
   # payment_rate
   st.write('{payment_rate} du client: ', X.loc[[id_client]]['payment_rate'].values[0])
-  fig= px.box(X, y="payment_rate")
+  fig= px.box(X, y="payment_rate", boxmean=True)
   st.plotly_chart(fig)
   
             
