@@ -82,7 +82,7 @@ if predict_btn_res:
 dist_btn_res = st.sidebar.button("Positionner le client")
 if dist_btn_res:
   st.write('code_gender du client: ', X.loc[[id_client]]['code_gender'])
-  fig= px.histogram(X_test_sample, x="code_gender", color="code_gender")
+  fig= px.histogram(X, x="code_gender", color="code_gender")
   st.pyplot(fig)
   
             
