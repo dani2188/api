@@ -8,6 +8,7 @@ import streamlit.components.v1 as components
 import numpy as np
 import plotly
 import plotly.graph_objects as pgo
+import plotly.express as px
 import shap
 import dill
 #import matplotlib.pyplot as plt
@@ -16,13 +17,6 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 # cd C:/Users/marat/Downloads/Py-DS-ML-Bootcamp-master/OCR/P7/dashboard/
 #streamlit run dashboard.py
-
- 
-# loading the trained model
-#pickle_in = open('lgbm.pkl', 'rb') # quel est le dossier courant?
-#model = pickle.load(pickle_in)
-
-
 
 
 # Titres de l'application
@@ -52,19 +46,8 @@ if predict_btn:
    'steps' : [{'range': [0, round(resultat.json()['probability'],2)], 'color': "green"}, {'range': [round(resultat.json()['probability'],2), 1], 'color': "red"}]}))
   st.plotly_chart(fig, use_container_width=True)
    
-  # plot with seaborn
-  #limits = [0, 1]
-  #palette = sns.color_palette("coolwarm_r", len(limits))
-  #fig, ax = plt.subplots()
-  #ax.set_aspect('equal')
-  #ax.set_yticks([1])
-  #ax.set_yticklabels(['Probabilité du résultat']) 
-  # Draw the value we're measuring
-  #ax.barh([1], round(resultat.json()['probability'],2), color='black', height=5)
-  # Plot
-  #st.plotly_chart(fig, use_container_width=True)
-     
-    
+ 
+       
 
 # Définition d'une fonction pour visualisation shap
 def st_shap(plot, height=None):
@@ -94,7 +77,14 @@ if predict_btn_res:
   st.pyplot(shap.summary_plot(shap_values, X))
             
             
-            
+  
+# Distribition des top features importance:
+dist_btn_res = st.sidebar.button("Donner la position relative parmi l'ensemble des clients (Top features)")
+if dist_btn_res:
+  st.write('code_gender du client: ', X.loc[[id_client]]['code_gender'])
+  fig= px.histogram(X_test_sample, x="code_gender", color="code_gender")
+  st.pyplot(fig)
+  
             
             
     
