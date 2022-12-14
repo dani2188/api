@@ -75,10 +75,11 @@ if predict_btn_res:
 
   # visualize the prediction's explanation:
   #st_shap(shap.force_plot(explainer.expected_value, shap_values[1][0,:], X.loc[[id_client]]), 200)
-  shap.force_plot(explainer.expected_value, shap_values[1][0,:], X.loc[[id_client]], matplotlib=True)
+  st.pyplot(shap.force_plot(explainer.expected_value, shap_values[1][0,:], X.loc[[id_client]]))
   # ALL prédictions
   #st_shap(shap.force_plot(explainer.expected_value, shap_values[1], X),400)
-  #st.pyplot(shap.summary_plot(shap_values, X))
+  st.pyplot(shap.force_plot(explainer.expected_value, shap_values[1], X))
+  st.pyplot(shap.summary_plot(shap_values, X))
             
             
   
