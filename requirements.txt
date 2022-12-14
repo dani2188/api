@@ -9,3 +9,4 @@ gunicorn
 uvicorn
 fastapi
 dill==0.3.6
+matplotlib==3.2.2
