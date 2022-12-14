@@ -11,7 +11,7 @@ import plotly.graph_objects as pgo
 import plotly.express as px
 import shap
 import dill
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 #import seaborn as sns
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
@@ -53,7 +53,9 @@ if predict_btn:
 def st_shap(plot, height=None):
     shap_html = f"<head>{shap.getjs()}</head><body>{plot.html()}</body>"
     components.html(shap_html, height=height)
-    
+
+
+
 #Interprétabilité des résultats avec SHAP:   
 predict_btn_res = st.sidebar.button("Analyse de la prédiction")
 if predict_btn_res:
@@ -72,10 +74,12 @@ if predict_btn_res:
   shap_values_file.close()   
 
   # visualize the prediction's explanation:
-  st_shap(shap.force_plot(explainer.expected_value, shap_values[1][0,:], X.loc[[id_client]]), 200)
+  #st_shap(shap.force_plot(explainer.expected_value, shap_values[1][0,:], X.loc[[id_client]]), 200)
+  fig= shap.force_plot(explainer.expected_value, shap_values[1][0,:], X.loc[[id_client]], matplotlib=True)
+  st.pyplot(fig)
   # ALL prédictions
-  st_shap(shap.force_plot(explainer.expected_value, shap_values[1], X),400)
-  st.pyplot(shap.summary_plot(shap_values, X))
+  #st_shap(shap.force_plot(explainer.expected_value, shap_values[1], X),400)
+  #st.pyplot(shap.summary_plot(shap_values, X))
             
             
   
