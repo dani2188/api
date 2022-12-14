@@ -11,6 +11,7 @@ import plotly.graph_objects as pgo
 import plotly.express as px
 import shap
 import dill
+import matplotlib
 #import matplotlib.pyplot as plt
 #import seaborn as sns
 st.set_option('deprecation.showPyplotGlobalUse', False)
