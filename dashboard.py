@@ -75,8 +75,8 @@ if predict_btn_res:
   shap_values_file.close()   
 
   # visualize the prediction's explanation for one sample:
-  #st_shap(shap.force_plot(explainer.expected_value, shap_values[1][0,:], X.loc[[id_client]]), 200)
-  st.write('Interprétabilité relative')
+  st_shap(shap.force_plot(explainer.expected_value, shap_values[1][0,:], X.loc[[id_client]]), 200)
+  #st.write('Interprétabilité relative')
   st.pyplot(shap.force_plot(explainer.expected_value, shap_values[1][0,:], X.loc[[id_client]],matplotlib=True))
   # ALL prédictions ( Visualize many predictions)
   #st_shap(shap.force_plot(explainer.expected_value, shap_values[1], X),400)
