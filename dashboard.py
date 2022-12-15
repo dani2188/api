@@ -77,10 +77,10 @@ if predict_btn_res:
   # visualize the prediction's explanation for one sample:
   #st_shap(shap.force_plot(explainer.expected_value, shap_values[1][0,:], X.loc[[id_client]]), 200)
   st.pyplot(shap.force_plot(explainer.expected_value, shap_values[1][0,:], X.loc[[id_client]],matplotlib=True))
-  # ALL prédictions
+  # ALL prédictions ( Visualize many predictions)
   #st_shap(shap.force_plot(explainer.expected_value, shap_values[1], X),400)
   #st.pyplot(shap.force_plot(explainer.expected_value, shap_values[1], X))
-  # Features importance globale
+  # Features importance globale (SHAP summary plot)
   st.pyplot(shap.summary_plot(shap_values, X))
             
   
